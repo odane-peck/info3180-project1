@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1 class="page-header">Profile Informaton</h1>
+<div class="container">
+	<div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<div class="profile-userpic">
+					<img src = {{ url_for('uploaded_file', filename = user.profile_photo) }}  alt="" class="img-responsive">
+				</div>
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						{{ user.first_name }} {{ user.last_name }}
+					</div>
+					<div class="profile-usertitle-job">
+						@{{ user.username }} 
+					</div>
+				</div>
+
+				<div class="profile-usermenu">
+					<ul class="nav">
+						<li>
+							<a href="#">
+								<strong>Profile created on: </strong> {{ user.date_created }}</a>
+						</li>
+						<li>
+							<a href="#">
+								<strong> User ID: </strong> {{ user.person_id }} </a>
+						</li>
+						<li>
+							<a href="#">
+								<strong>Gender: </strong> 
+								{%- if user.gender | int == 1 -%}
+								Female
+								{%- else -%}
+								Male
+								{% endif %}
+							</a>
+						</li>
+						<li>
+							<a href="#" target="_blank">
+								<strong>Age: </strong> {{ user.age }}
+							</a>
+						</li>
+						<li>
+							<a href="api/{{user.username}}" target="_blank"> <strong>Get JSON Object </strong></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-9">
+			<div class="profile-content">
+				{{ user.bio }}
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+<br>
+
+{% endblock %}
