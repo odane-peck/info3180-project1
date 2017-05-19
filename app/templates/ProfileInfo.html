@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<h1 class="page-header">ProfileInformation</h1>
+{% include 'flash_messages.html' %}
+<form action="/profile" method="POST" enctype="multipart/form-data">
+	{{ form.hidden_tag() }}
+	{{ form.csrf_token }}
+	
+	<div class="form-group">
+		<label for="gender">{{ form.f.label }}</label>
+		{{ form.f(class_="form-control") }}
+	</div>
+	<div class="form-group">
+		<label for="gender">{{ form.c.label }}</label>
+		{{ form.c(class_="form-control") }}
+	</div>
+	<div class="form-group">
+		<label for="gender">{{ form.r.label }}</label>
+		{{ form.r(class_="form-control") }}
+	</div>
+	<div class="form-group">
+		<label for="gender">{{ form.r1.label }}</label>
+		{{ form.r1(class_="form-control") }}
+	</div>
+    <div class="form-group">
+		<label for="age" class="col-2 col-form-label">{{ form.a.label }}</label>
+		<div class="col-10">
+			{{ form.a(size=30, class_="form-control input") }}
+		</div>
+	</div>
+	<div class="form-group">
+		<h4>What character traits are you seeking within a partner?</h4>
+      	<label for="age"><label for="honesty">Honesty</label></label>
+      	<input id="honesty" name="honesty" type="checkbox" value="y">
+		<label for="age"><label for="loyalty">Loyalty</label></label>
+		<input id="loyalty" name="loyalty" type="checkbox" value="y">	
+		<label for="age"><label for="friendly">Friendly</label></label>
+      	<input id="friendly" name="friendly" type="checkbox" value="y">
+      	<label for="age"><label for="integrity">Integrity</label></label>
+      	<input id="integrity" name="integrity" type="checkbox" value="y">
+      	<label for="age"><label for="respectful">Restpectful</label></label>
+      	<input id="respectful" name="respectful" type="checkbox" value="y">
+      	<label for="age"><label for="compassionate">Compassionate</label></label>
+      	<input id="compassionate" name="compassionate" type="checkbox" value="y">
+      	<label for="age"><label for="fair">Fair</label></label>
+      	<input id="fair" name="fair" type="checkbox" value="y">
+      	<label for="age"><label for="forgiving">Forgiving</label></label>
+      	<input id="forgiving" name="forgiving" type="checkbox" value="y">
+      	<label for="age"><label for="courageous">Courageous</label></label>
+      	<input id="courageous" name="courageous" type="checkbox" value="y">
+      	<label for="age"><label for="generous">Generous</label></label>
+      	<input id="generous" name="generous" type="checkbox" value="y">
+      	<label for="age"><label for="polite">Polite</label></label>
+      	<input id="polite" name="polite" type="checkbox" value="y">
+      	<label for="age"><label for="kind">Kind</label></label>
+      	<input id="kind" name="kind" type="checkbox" value="y">
+      	<label for="age"><label for="loving">Loving</label></label>
+      	<input id="loving" name="loving" type="checkbox" value="y">
+      	<label for="age"><label for="optimistic">Optimistic</label></label>
+      	<input id="optimistic" name="optimistic" type="checkbox" value="y">
+      	<label for="age"><label for="reliable">Reliable</label></label>
+      	<input id="reliable" name="reliable" type="checkbox" value="y">
+      	<label for="age"><label for="consious">Conscious</label></label>
+      	<input id="consious" name="consious" type="checkbox" value="y">
+      	</div>
+      	
+      	<div class="form-group">
+		<h1>Now tell us about your likes</h1>
+		<h4> What are your general likes?</h4>
+      	<label for="age"><label for="traveling">Traveling</label></label>
+      	<input id="traveling" name="traveling" type="checkbox" value="y">
+		<label for="age"><label for="food">Food</label></label>
+		<input id="food" name="food" type="checkbox" value="y">
+      	<label for="age"><label for="sports">Sports</label></label>
+      	<input id="sports" name="sports" type="checkbox" value="y">
+		<label for="age"><label for="movies">Movies</label></label>
+		<input id="movies" name="movies" type="checkbox" value="y">
+		<label for="age"><label for="exercising">Exercising</label></label>
+      	<input id="exercising" name="exercising" type="checkbox" value="y">
+		<label for="age"><label for="shopping">Shopping</label></label>
+		<input id="shopping" name="shopping" type="checkbox" value="y">
+      	<label for="age"><label for="music">Music</label></label>
+      	<input id="music" name="music" type="checkbox" value="y">
+		<label for="age"><label for="singing">Singing</label></label>
+		<input id="singing" name="singing" type="checkbox" value="y">
+		<label for="age"><label for="dancing">Dancing</label></label>
+      	<input id="dancing" name="dancing" type="checkbox" value="y">
+		<label for="age"><label for="reading">Reading</label></label>
+		<input id="reading" name="reading" type="checkbox" value="y">
+      	<label for="age"><label for="fashion">Fashion</label></label>
+      	<input id="fashion" name="fashion" type="checkbox" value="y">
+		<label for="age"><label for="pets">Pets</label></label>
+		<input id="pets" name="pets" type="checkbox" value="y">
+		</div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}	

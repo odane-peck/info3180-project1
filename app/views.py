@@ -1,13 +1,28 @@
 import os
 from datetime import date
-from forms import CreateUserForm
+from forms import CreateUserForm, ProfileInfo
 from app import app, models, forms, db
 from models import Users 
 from werkzeug.utils import secure_filename
 from flask import render_template, request, redirect, url_for, flash, session, abort, jsonify, send_from_directory, session,make_response
 from sqlalchemy.sql import exists
 from werkzeug.wsgi import SharedDataMiddleware
+#import alg#
 
+#@app.route(/matched profiles?)
+# def Matchprofile():
+	# pass current user profile to algorithm
+	
+	#matched_users = [('username1', 'photo.jpg', '98%'), ('username2', 'photo2.jpg', '52%'), ('username3', 'photo3.jpg', '96%')]
+	#return render_template('template.html', users=matched_users)
+
+# @app.route('/api/api/route/database')
+# def view():
+	
+@app.route('/api/profile/get')
+def profiler():
+	form = ProfileInfo()
+	return render_template('ProfileInfo.html', form = form)
 @app.route('/')
 def home():
 	form = CreateUserForm()
@@ -33,7 +48,8 @@ def profile(username = None):
 			db.session.add(user)
 			db.session.commit()
 			user = Users.query.all()
-			return redirect(url_for('profiles'))
+			form = ProfileInfo()
+			return render_template('ProfileInfo.html', form = form)
 		else:
 			flash('Username already in use.', 'danger')
 			return render_template('form.html', form = form)
@@ -55,6 +71,12 @@ def display_profile():
 @app.route("/profiles", methods = ['GET'] )
 def profiles():
 	users = Users.query.all()
+	# match = []
+	
+	# for user in users:
+	# 	matching statements with user as param
+	# 	if match leve good: 
+	# 		match.append(user)
 	"""Render the website profile page"""
 	return render_template("profiles.html", users = users)
 
@@ -77,7 +99,7 @@ def timeinfo():
 	date.today()
 	return "Today's date is {0:%a}, {0:%d} {0:%b} {0:%y}".format(d)
 
-@app.route('/api/all')
+@app.route('/api/all') 
 def JSONcall():
 	users 					= Users.query.all()
 	ls 						= []
@@ -90,6 +112,12 @@ def JSONcall():
 	
 	return jsonify({'users' : ls})
 
+# @app.route('/match')
+# def match():
+	# mymatch=Match()
+	
+	#render_template('match.html, mymatch=mymatch')
+	
 @app.route('/api/<username>')
 def userJSON(username = None):
 	users = Users.query.all()
@@ -121,5 +149,5 @@ app.add_url_rule('/uploads/<filename>', 'uploaded_file', build_only=True)
 app.wsgi_app = SharedDataMiddleware(app.wsgi_app, { '/uploads':  app.config['UPLOAD_FOLDER'] })
 
 if __name__ == '__main__':
-	app.run(debug=True,host="localhost",port="8081")
+	app.run(debug=True,host="0.0.0.0",port="8081")
 

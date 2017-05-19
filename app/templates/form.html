@@ -24,24 +24,92 @@
 			{{ form.age(size=30, class_="form-control input") }}
 		</div>
 	</div>
-	<div class="form-group">
-		<label for="bio">{{ form.bio.label }}</label>
-		{{ form.bio(class_="form-control") }}
-	</div>
+
 	<div class="form-group">
 		<label for="gender">{{ form.gender.label }}</label>
 		{{ form.gender(class_="form-control") }}
 	</div>
+	
 	<div class="form-group">
-		<label for="file-upload" class="custom-file-upload">
+		<label for="firstname">{{ form.country.label }}</label>
+		{{ form.country(size=30, class_="form-control input") }}
+	</div>
+	
+	<div class="form-group">
+		<label for="gender">{{ form.height.label }}</label>
+		{{ form.height(class_="form-control") }}
+	</div>
+	
+	<div class="form-group">
+		<label for="firstname">{{ form.origin.label }}</label>
+		{{ form.origin(size=30, class_="form-control input") }}
+	</div>
+	
+	<div class="form-group">
+		<label for="gender">{{ form.professional.label }}</label>
+		{{ form.professional(class_="form-control") }}
+	</div>
+	<div class="form-group">
+		<label for="gender">{{ form.school.label }}</label>
+		{{ form.school(class_="form-control") }}
+	</div>
+	<div class="form-group">
+		<label for="gender">{{ form.userrel.label }}</label>
+		{{ form.userrel(class_="form-control") }}
+	</div>
+	<div class="form-group">
+		<label for="gender">{{ form.userrelty.label }}</label>
+		{{ form.userrelty(class_="form-control") }}
+	</div>
+		<div class="form-group">
+		<h4>What are your character traits?</h4>
+      	<label for="age"><label for="honesty">Honesty</label></label>
+      	<input id="honesty" name="honesty" type="checkbox" value="y">
+		<label for="age"><label for="loyalty">Loyalty</label></label>
+		<input id="loyalty" name="loyalty" type="checkbox" value="y">	
+		<label for="age"><label for="friendly">Friendly</label></label>
+      	<input id="friendly" name="friendly" type="checkbox" value="y">
+      	<label for="age"><label for="integrity">Integrity</label></label>
+      	<input id="integrity" name="integrity" type="checkbox" value="y">
+      	<label for="age"><label for="respectful">Restpectful</label></label>
+      	<input id="respectful" name="respectful" type="checkbox" value="y">
+      	<label for="age"><label for="compassionate">Compassionate</label></label>
+      	<input id="compassionate" name="compassionate" type="checkbox" value="y">
+      	<label for="age"><label for="fair">Fair</label></label>
+      	<input id="fair" name="fair" type="checkbox" value="y">
+      	<label for="age"><label for="forgiving">Forgiving</label></label>
+      	<input id="forgiving" name="forgiving" type="checkbox" value="y">
+      	<label for="age"><label for="courageous">Courageous</label></label>
+      	<input id="courageous" name="courageous" type="checkbox" value="y">
+      	<label for="age"><label for="generous">Generous</label></label>
+      	<input id="generous" name="generous" type="checkbox" value="y">
+      	<label for="age"><label for="polite">Polite</label></label>
+      	<input id="polite" name="polite" type="checkbox" value="y">
+      	<label for="age"><label for="kind">Kind</label></label>
+      	<input id="kind" name="kind" type="checkbox" value="y">
+      	<label for="age"><label for="loving">Loving</label></label>
+      	<input id="loving" name="loving" type="checkbox" value="y">
+      	<label for="age"><label for="optimistic">Optimistic</label></label>
+      	<input id="optimistic" name="optimistic" type="checkbox" value="y">
+      	<label for="age"><label for="reliable">Reliable</label></label>
+      	<input id="reliable" name="reliable" type="checkbox" value="y">
+      	<label for="age"><label for="consious">Conscious</label></label>
+      	<input id="consious" name="consious" type="checkbox" value="y">
+      	</div>
+	
+	
+	<div class="form-group">
+		<label for="file-upload" class="custom-file-upload btn-primary">
 			<i class="fa fa-cloud-upload"></i> {{ form.image.label }}
 		</label>
 		{{ form.image }}
 	</div>
 	<div class="form-group">
-		<label for="password">{{ form.password.label }}</label>
-		{{ form.password(size=30, class_="form-control input") }}
+		<label for="bio">{{ form.bio.label }}</label>
+		{{ form.bio(class_="form-control") }}
 	</div>
+
+	
 	<button type="submit" class="btn btn-primary">Submit</button>
 </form>
 {% endblock %}
